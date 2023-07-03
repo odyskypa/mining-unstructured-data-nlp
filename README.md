@@ -101,9 +101,10 @@ Where the head token for each gold entity refers to the token in the dependency 
 Additioanlly, a set of tests was performed to assess the effects of adding the rest of a particular token information (word, lemma, PoS tag, and combinations).
 
 Also, features like `path1_nodes`, `path2_nodes`, `path1_edges`, `path1_nodes`, `path_edges` and `path_edges` were created which are based purely on words and PoS tags from the dependency relations. The addition of these features gave us a `3% increase on average in the macro F1` in the tests we performed. Two examples of these new features are:
-
-* path2_nodes=inhibitor<inhibitor<NN<metabolism< metabolism<NN<theophylline<theophylline<NN
-* path_edges=conj<<<indir<conj<<<indir
+```
+ path2_nodes=inhibitor<inhibitor<NN<metabolism< metabolism<NN<theophylline<theophylline<NN
+ path_edges=conj<<<indir<conj<<<indir
+```
   
 Finally, by analyzing the meaning behind the four different types of interactions to see if there was any pattern or possible indicators in the sentences that we could use in our favor to differentiate between them, rather than more analytical approaches as presented before. Here is the definition of every interaction type:
 
