@@ -50,7 +50,7 @@ Before applying the classifiers, the most imprortant stage of this part of the p
 * The same features as above for the previous one or two tokens, depending on the position of the current token in the sentence (e.g. `form_prev_1=`, `form_prev_2`, `form_next_1`, `form_next_2`, etc.).
   * In this case, checks were performed in order to validate if a token is at the start or at the end  of a sentence in order to avoid exceeding the sentence length or trying to select tokens with indexes like -1. All different cases are taken into account.
 
-One important thing that needs to be clarified here is that the result of the extract-features.py script that is generating the features used for training the classifiers, is making use of the `B-I-O schema tagging`. `B-I-O schema tagging`, also known as the IOB (Inside-Outside-Beginning) tagging scheme, `is a commonly used method for NER`. In the B-I-O schema, each word in a text is tagged with a label that indicates whether it is part of an entity or not, and if so, which type of entity it belongs to.
+One important thing that needs to be clarified here is that the result of the `extract-features.py` script that is generating the features used for training the classifiers, is making use of the `B-I-O schema tagging`. `B-I-O schema tagging`, also known as the IOB (Inside-Outside-Beginning) tagging scheme, `is a commonly used method for NER`. In the B-I-O schema, each word in a text is tagged with a label that indicates whether it is part of an entity or not, and if so, which type of entity it belongs to.
 
 Consequently, the `B-I-O tags` are being used by the classification algorithms to detect if a word in the sentence is an entity, and then to classify those entities into one of the following target labels: `B-drug`, `B-brand`, `B-group`, `B-drug_n`, `I-drug`, `I-brand`, `I-group`, `I-drug_n` and `O`.
 
@@ -66,7 +66,7 @@ With the `DDI Corpus`, which is a semantically annotated corpus of documents des
 
 In this case, the performed experiments made use of two ML algorithms, `Naive Bayes` and `Linear Support Vector Machine (Linear SVM)`.
 
-The input to the `feature extractor` is not the sentence itself, but a `dependency tree` with added individual features about every node/word, generated with `CoreNLP[^3]`. CoreNLP (Core Natural Language Processing) is a popular open-source software library developed by Stanford University that provides a suite of natural language processing tools for a variety of tasks, including tokenization, part-of-speech (POS) tagging, named entity recognition, parsing, sentiment analysis, and coreference resolution.
+The input to the `feature extractor` is not the sentence itself, but a `dependency tree` with added individual features about every node/word, generated with `CoreNLP`[^3]. CoreNLP (Core Natural Language Processing) is a popular open-source software library developed by Stanford University that provides a suite of natural language processing tools for a variety of tasks, including tokenization, part-of-speech (POS) tagging, named entity recognition, parsing, sentiment analysis, and coreference resolution.
 
 The CoreNLP dependency tree object contained, for every word/node in a sentence, a dictionary with the following relevant information:
 
