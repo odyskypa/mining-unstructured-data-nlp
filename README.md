@@ -62,7 +62,7 @@ Finally, hyper-parameter tuning of the 2 mentioned classifiers took place.
 
 #### DDI with Traditional ML Techniques
 
-With the DDI Corpus, which is a semantically annotated corpus of documents describing drug-drug interactions from the DrugBank database and MedLine abstracts, we face the goal of detecting when there is an interaction and when not, and classifying the existing drug-drug interactions into advice, effect, mechanism, and int.
+With the `DDI Corpus`, which is a semantically annotated corpus of documents describing drug-drug interactions from the DrugBank[^1] database and MedLine abstracts, we face the goal of detecting when there is an interaction and when not, and classifying the existing drug-drug interactions into advice, effect, mechanism, and int.
 
 ***
 ### NERC and DDI with Deep Learning
@@ -70,3 +70,6 @@ With the DDI Corpus, which is a semantically annotated corpus of documents descr
 #### NERC with Deep Learning
 
 #### DDI with Deep Learning
+
+[^1]: [https://go.drugbank.com/](https://go.drugbank.com/)
+[^2]: [https://www.nlm.nih.gov/medline/medline_overview.html](https://www.nlm.nih.gov/medline/medline_overview.html)
