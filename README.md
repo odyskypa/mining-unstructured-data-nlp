@@ -31,7 +31,7 @@ The source code used for this part of the project can be found [here](./src/lang
 In this part of the project, `NERC` and `DDI` tasks were performed by utilizing traditional ML approaches.
 
 #### NERC with Traditional ML Techniques
-In order to recognize and classify the pharmaceutical entities of the available data that were extracted from biomedical texts, experiments were performed with two different classifiers: `Naive Bayes (NB)` and `Conditional Random Fields (CRF)`.
+In more detail, inside the given sentences that exist in the corpora, there are four types of entities that need to be recognized and subsequently classified, namely `drug`, `brand`, `group`, and `drug_n`. In order to recognize and classify the pharmaceutical entities of the available data that were extracted from biomedical texts, experiments were performed with two different classifiers: `Naive Bayes (NB)` and `Conditional Random Fields (CRF)`.
 
 Before applying the classifiers, the most imprortant stage of this part of the project was the `generation of the features`. The features used are the following:
 
@@ -50,11 +50,17 @@ Before applying the classifiers, the most imprortant stage of this part of the p
 
 One important thing that needs to be clarified here is that the result of the extract-features.py script that is generating the features used for training the classifiers, is making use of the `B-I-O schema tagging`. `B-I-O schema tagging`, also known as the IOB (Inside-Outside-Beginning) tagging scheme, `is a commonly used method for NER`. In the B-I-O schema, each word in a text is tagged with a label that indicates whether it is part of an entity or not, and if so, which type of entity it belongs to.
 
+Consequently, the `B-I-O tags` are being used by the classification algorithms to detect if a word in the sentence is an entity, and then to classify those entities into one of the following target labels: `B-drug`, `B-brand`, `B-group`, `B-drug_n`, `I-drug`, `I-brand`, `I-group`, `I-drug_n` and `O`.
+
 Once all the above-mentioned features were calculated, `feature-importance` analysis was performed in order to conclude to the final set of features for training the classifiers. Graphs about feature importance per class of the analysis can be found in [feature-graphs folder](./feature-graphs). One example for the `B-drug` class is depicted in the figure below:
 
 ![](./feature-graphs/max-score-B-drug.png)
 
+Finally, hyper-parameter tuning of the 2 mentioned classifiers took place.
+
 #### DDI with Traditional ML Techniques
+
+With the DDI Corpus, which is a semantically annotated corpus of documents describing drug-drug interactions from the DrugBank database and MedLine abstracts, we face the goal of detecting when there is an interaction and when not, and classifying the existing drug-drug interactions into advice, effect, mechanism, and int.
 
 ***
 ### NERC and DDI with Deep Learning
