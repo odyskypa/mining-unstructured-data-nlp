@@ -11,6 +11,8 @@ Both solutions of part `2.` and `3.` make use of the `BIO tagging approach`.
 
 Below one can find information about the 3 parts of the project.
 
+For getting access to the data of the project, contact me via email @`odykypar@gmail.com`
+
 ***
 ### Language Detection
 In this part of the project an analysis of the performance of several preprocessing techniques and Machine Learning models for `Language Detection` task was accomplished. Word and character tokenization was tested and compared, as well as several different vocabulary sizes.
