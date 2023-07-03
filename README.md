@@ -14,7 +14,7 @@ Below one can find information about the 3 parts of the project.
 Analysis of performance of several preprocessing techniques and Machine Learning models for `Language Detection` task. Word and character tokenization was tested, as well as several different vocabulary sizes.
 
 #### Preprocessing Steps
-Preprocessing includes the usage of `NTLK` library, for `tokenization`, `lemmatization` and `POS tagging` of words or characters.
+Preprocessing includes the usage of `NTLK` library, for `tokenization`, `lemmatization` and `POS tagging` of words or characters. Additionally, `PCA` was implemented for dimensionality reduction.
 
 #### Classifiers Implemented
 
