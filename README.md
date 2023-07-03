@@ -9,6 +9,8 @@ The project is divided into 3 separate parts:
 
 Both solutions of part `2.` and `3.` make use of the `BIO tagging approach`. Also, part `2` and `3` consist of the same `training/dev/test` data and only the solution's implementation changes.
 
+All the experiments, results and conclusions of each individual part of the project can be found in the documents located at the [docs folder](./docs).
+
 Below one can find information about the 3 parts of the project.
 
 For getting access to the data of the project, contact me via email @`odykypar@gmail.com`
