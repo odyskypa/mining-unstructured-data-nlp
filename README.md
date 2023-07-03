@@ -3,9 +3,9 @@ Project of Mining Unstructed Data (MUD) Course for Master in Data Science Progra
 ***
 The project is divided into 3 separate parts:
 
-1. Language Detection
-2. Name Entity Recognition and Classification (NERC) and Drug-Drug Interaction Detection and Classification (DDI) with Traditional Machine Learning (ML) Techniques
-3. NERC and DDI with state-of-the-art Deep Learning (DL) Techniques
+1. [Language Detection](./src/language_detection)
+2. [Name Entity Recognition and Classification (NERC)](./src/NERC_traditional_ML) and [Drug-Drug Interaction Detection and Classification (DDI)](./src/DDI_traditional_ML) with Traditional Machine Learning (ML) Techniques
+3. [NERC](./src/NERC_DL) and [DDI](./src/DDI_DL) with state-of-the-art Deep Learning (DL) Techniques
 
 Below one can find information about the 3 parts of the project.
 
