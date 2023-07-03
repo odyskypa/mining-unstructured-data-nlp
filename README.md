@@ -1,4 +1,4 @@
-# Natural Language Processing with Traditional Machine Learning (ML) and Deep Learning (DL)
+# Language Detection, Name-Entity Recognition and Classification, Drug-Drug Interaction Detection and Classification
 Project of Mining Unstructed Data (MUD) Course for Master in Data Science Program of Universitat Politècnica de Catalunya (UPC)
 ***
 The project is divided into 3 separate parts:
