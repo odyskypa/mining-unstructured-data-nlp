@@ -23,7 +23,7 @@ Preprocessing includes the usage of `NTLK` library, for `tokenization`, `lemmati
 * DecisionTreeClassifier
 * SVC
 
-The source code used for this part of the project can be found in [Language Detection](http://example.com)
+The source code used for this part of the project can be found [here](./src/language_detection)
 
 ***
 ### NERC and DDI with Traditional ML Techniques
