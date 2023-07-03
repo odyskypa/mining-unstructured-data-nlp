@@ -88,13 +88,13 @@ It is important to mention here, that this part of the project is focused again 
 
 The `set of the initial features` was composed of:
 
-* lib: lemma of the first token after e1 entity head
-* wib: lemma of the first token after e2 entity head
-* lpig: lemma and PoS tag of the first token after drug1 entity head
-* eib: True/False. Presence of a third drug entity between e1 and e2.
-* path: path with lemmas and relations from e1 head to LCS to e2 head
-* path1: path up with lemmas and relations from e1 head to LCS
-* path2: path down with lemmas and relations from LCS to e2 head 
+* `lib`: lemma of the first token after e1 entity head
+* `wib`: lemma of the first token after e2 entity head
+* `lpig`: lemma and PoS tag of the first token after drug1 entity head
+* `eib`: True/False. Presence of a third drug entity between e1 and e2.
+* `path`: path with lemmas and relations from e1 head to LCS to e2 head
+* `path1`: path up with lemmas and relations from e1 head to LCS
+* `path2`: path down with lemmas and relations from LCS to e2 head 
 
 Where the head token for each gold entity refers to the token in the dependency parse tree that corresponds to the main noun or verb that represents the entity. 
 
@@ -108,13 +108,13 @@ Also, features like `path1_nodes`, `path2_nodes`, `path1_edges`, `path1_nodes`, 
 Finally, by analyzing the meaning behind the four different types of interactions to see if there was any pattern or possible indicators in the sentences that we could use in our favor to differentiate between them, rather than more analytical approaches as presented before. Here is the definition of every interaction type:
 
 * `Advice`: DDI in which a recommendation or advice regarding the concomitant use of two drugs involved in them is described.
- * e.g.:  "Interactions may be expected, and UROXATRAL should NOT be used in combination with other alpha-blockers."
+   * e.g.:  "Interactions may be expected, and UROXATRAL should NOT be used in combination with other alpha-blockers."
 * `Effect`: DDI in which the effect of the drug-drug interaction is described.
- * e.g.: “Aspirin and Paracetamol help decrease temperature.”
+   * e.g.: “Aspirin and Paracetamol help decrease temperature.”
 * `Mechanism`: The mechanism of interaction can be pharmacodynamic (the effects of one drug are changed by the presence of another drug at its site of action, for example, "alcohol potentiates the depressor effect of barbiturates") pharmacokinetic (the processes by which drugs are absorbed, distributed, metabolized and excreted are affected, for example, ("induced the metabolism of", "increased the clearance of'). As already noted, a pharmacodynamic relationship between entities must be considered type effect.
- * e.g.: Grepafloxacin, like other quinolones, may inhibit the metabolism of caffeine and theobromine.
-* int: the sentence simply states that an interaction occurs and does not provide any information about the interaction.
- * e.g.: The interaction of omeprazole and ketoconazole has been established.
+   * e.g.: Grepafloxacin, like other quinolones, may inhibit the metabolism of caffeine and theobromine.
+* `int`: the sentence simply states that an interaction occurs and does not provide any information about the interaction.
+   * e.g.: The interaction of omeprazole and ketoconazole has been established.
 
 The presence of certain `clue verbs before, between, and after` the `drug entities` could be useful information for labeling the different types of interactions.
 
