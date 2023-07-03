@@ -18,10 +18,10 @@ Preprocessing includes the usage of `NTLK` library, for `tokenization`, `lemmati
 
 #### Classifiers Implemented
 
-* MultinomialNB
-* KNeighborsClassifier
-* DecisionTreeClassifier
-* SVC
+* Naive Bayes (NB)
+* k-Nearest Neighbors (kNN)
+* Decision Tree Classifier
+* Support Vector Machine (SVM)
 
 The source code used for this part of the project can be found [here](./src/language_detection)
 
