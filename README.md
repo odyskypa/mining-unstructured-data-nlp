@@ -60,6 +60,8 @@ Once all the above-mentioned features were calculated, `feature-importance` anal
 
 Finally, hyper-parameter tuning of the 2 mentioned classifiers took place.
 
+The source code used for this part of the project can be found [here](./src/NERC_traditional_ML)
+
 #### DDI with Traditional ML Techniques
 
 With the `DDI Corpus`, which is a semantically annotated corpus of documents describing drug-drug interactions from the DrugBank[^1] database and MedLine[^2] abstracts, we face the goal of detecting when there is an interaction and when not, and classifying the existing drug-drug interactions into `advice`, `effect`, `mechanism`, and `int`.
@@ -98,7 +100,7 @@ The `set of the initial features` was composed of:
 
 Where the head token for each gold entity refers to the token in the dependency parse tree that corresponds to the main noun or verb that represents the entity. 
 
-Additioanlly, a set of tests was performed to assess the effects of adding the rest of a particular token information (word, lemma, PoS tag, and combinations).
+Additionally, a set of tests was performed to assess the effects of adding the rest of a particular token information (word, lemma, PoS tag, and combinations).
 
 Also, features like `path1_nodes`, `path2_nodes`, `path1_edges`, `path1_nodes`, `path_edges` and `path_edges` were created which are based purely on words and PoS tags from the dependency relations. The addition of these features gave us a `3% increase on average in the macro F1` in the tests we performed. Two examples of these new features are:
 ```
@@ -124,6 +126,8 @@ The list of key terms for the `clue lemmas list` is the following:
 ```
  clue_lemmas = ["affect", "effect", "diminish", "produce", "increase", "result", "decrease", "induce", "enhance", "lower", "cause", "interact", "interaction", "shall", "caution", "advise", "reduce", "prolong", "not"]
 ```
+
+The source code used for this part of the project can be found [here](./src/DDI_traditional_ML)
 
 ***
 ### NERC and DDI with Deep Learning
