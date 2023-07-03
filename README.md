@@ -35,17 +35,18 @@ In order to recognize and classify the pharmaceutical entities of the available 
 
 Before applying the classifiers, the most imprortant stage of this part of the project was the `generation of the features`. The features used are the following:
 
-* Form of the token (form=)
-* Lowercased form of the token (lower=)
-* Length of the token (length=)
-* A set of flags indicating whether the token matches certain words from four different lists (DB_drug_list, DB_brand_list, DB_group_list, and hsdb_list)
-* Whether the token is at the beginning or end of a sentence (BoS, EoS)
-* Suffixes of length 3, 4, 5, and 6 of the token (e.g. suf3=, suf4=, etc.)
-* A set of flags indicating whether the token has special characters (POSC), such as punctuation or digits, or occurrences of one capital letter (OC) or more (MTOC).
-* Prefixes of length 3, 4, 5, and 6 of the token (e.g. pre3=, pre4=, etc.)
-* POS tag of the token, as determined by the NLTK library (POS=).
-* Lemma of the token, as determined by the WordNet lemmatizer (lemma=).
-* The same features as above for the previous one or two tokens, depending on the position of the current token in the sentence (e.g. form_prev_1=, form_prev_2, form_next_1, form_next_2, etc.). In this case, checks were performed in order to validate if a token is at the start or at the end  of a sentence in order to avoid exceeding the sentence length or trying to select tokens with indexes like -1. All different cases are taken into account.
+* Form of the token (`form=`)
+* Lowercased form of the token (`lower=`)
+* Length of the token (`length=`)
+* A set of flags indicating whether the token matches certain words from four different lists (`DB_drug_list`, `DB_brand_list`, `DB_group_list`, and `hsdb_list`)
+* Whether the token is at the beginning or end of a sentence (`BoS`, `EoS`)
+* Suffixes of length 3, 4, 5, and 6 of the token (e.g. `suf3=`, `suf4=`, etc.)
+* A set of flags indicating whether the token has special characters (`POSC`), such as punctuation or digits, or occurrences of one capital letter (`OC`) or more (`MTOC`).
+* Prefixes of length 3, 4, 5, and 6 of the token (e.g. `pre3=`, `pre4=`, etc.)
+* POS tag of the token, as determined by the NLTK library (`POS=`).
+* Lemma of the token, as determined by the WordNet lemmatizer (`lemma=`).
+* The same features as above for the previous one or two tokens, depending on the position of the current token in the sentence (e.g. `form_prev_1=`, `form_prev_2`, `form_next_1`, `form_next_2`, etc.).
+  * In this case, checks were performed in order to validate if a token is at the start or at the end  of a sentence in order to avoid exceeding the sentence length or trying to select tokens with indexes like -1. All different cases are taken into account.
 
 One important thing that needs to be clarified here is that the result of the extract-features.py script that is generating the features used for training the classifiers, is making use of the `B-I-O schema tagging`. `B-I-O schema tagging`, also known as the IOB (Inside-Outside-Beginning) tagging scheme, `is a commonly used method for NER`. In the B-I-O schema, each word in a text is tagged with a label that indicates whether it is part of an entity or not, and if so, which type of entity it belongs to.
 
