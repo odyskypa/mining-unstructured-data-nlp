@@ -137,6 +137,64 @@ In this part of the project, the problems of NERC and DDI which needed to be add
 
 #### NERC with Deep Learning
 
+The overall architecture of the neural network of this solution is defined using the `Keras functional API`. The model is constructed by specifying the input layers and the subsequent flow of data through the `embedding`, `bidirectional LSTM (BiLSTM)`, `hidden`, and `output layers`.
+
+Compared to the traditional ML approach followed before, this approach focuses on both using appropriate word embeddings to train the network in collaboration with new input features to improve results within the learning algorithm.
+
+To begin with, the following techniques will be tested to further enhance the performance of the network: 
+* Adding custom input embedding layers with: 
+   * lowercase words, 
+   * their POS tags, 
+   * their lemmas, 
+   * suffixes and prefixes of length 3 to 6
+   * words that contain one capital letter, multiple capital letters, digits, and punctuation respectively
+* Moreover, four additional input layers have been tested, which contain:
+   * words that are included in the external sources provided (DrugBank.txt, HSDB.txt), as well as
+   * a `frozen layer` containing `pre-trained embeddings from Stanford (GloVe)`.
+
+##### Input Layers
+* `inptW`: layer for word indices representing the main words in the sentences.
+* `inptS`: layer for suffix of length 5 indices representing the suffixes of the words.
+* `inptLc`: lowercase word indices, which represent the lowercase versions of the words.
+* `inptS3`, `inptS4`, `inptS6`: layers for suffix indices of different lengths (3, 4, and 6 characters), capturing variations in word endings.
+* `inptPos`: part-of-speech tag indices representing the grammatical category of the words.
+* `inptCs`: capitalization input layer indicating whether each word contains more than one capitalized letter or not.
+* `inptSC`: single capitalization indices indicating whether each word contains a single capital letter.
+* `inptPU`: punctuation input layer representing the presence or absence of punctuation marks in the words.
+* `inptD`: digit indices layer indicating the presence or absence of digits in the words.
+* `inptDr`: indices layer representing the presence or absence of drug-related terms in the words.
+* `inptBr`: representing the presence or absence of brand-related terms in the words.
+* `inptGr`: include the presence or absence of group-related terms in the words.
+* `inptHs`: indices that include the presence or absence of HSDB (Hazardous Substances Data Bank) terms in the words.
+
+##### Embedding Layers
+* `embW`: embeddings for word indices with an output dimension of 100.
+* `embS`: embedding layer for suffix indices with an output dimension of 50.
+* `embLc`: lowercase word indices with an output dimension of 100.
+* `embS3`, `embS4`, `embS6`: suffixes of different lengths (3, 4, and 6 characters) with an output dimension of 50.
+* `embPos`: part-of-speech tag embedding layer with an output dimension of 50.
+* `embCs`: capitalization embedding layer indicating whether each word contains more than one capitalized letter or not with an output dimension of 50.
+* `embSC`: embeddings for single capitalization indices with an output dimension of 50.
+* `embPU`: punctuation indices with an output dimension of 50.
+* `embD`: embedding layer for digit indices with an output dimension of 50.
+* `embDr`: drug-related term indices embeddings with an output dimension of 50.
+* `embBr`: brand-related term indices with an output dimension of 50.
+* `embGr`: embeddings for group-related term indices with an output dimension of 50.
+* `embHs`: HSDB term indices embedding layer with an output dimension of 50.
+
+##### Pre-trained GloVe Word Embeddings
+The GloVe word embeddings capture semantic relationships between words based on their co-occurrence statistics in a large corpus of text. The embeddings are loaded from the `glove.6B.300d.txt` file (found [here](https://nlp.stanford.edu/projects/glove/)), which contains word vectors of dimensionality 300.
+
+##### BiLSTM Layer
+After embedding the input features, a `BiLSTM layer` is employed to **capture contextual information and sequential dependencies within the text**. The BiLSTM layer consists of `300 hidden units` and is set to `return sequences`. Additionally, as an **activation function** the `hyperbolic tangent function (tanh)` was used. Although `ReLU activation function` was tested as well in this part of the architecture but the results were worse compared to Tanh.
+
+##### Hidden Layer
+A dense hidden layer follows the BiLSTM layer. This layer serves as a non-linear transformation to further extract and encode relevant features from the contextual representations provided by the BiLSTM. The intention of adding a hidden layer is to allow the network to learn more complex patterns included in the data. However, the difference in the final results is not so important. The hidden layer was tested with different configurations, including tries of 50 and 200 units (neurons) and usage of tanh and ReLU activation functions.
+
+###### Output Layer
+Finally, a `time-distributed dense layer` is applied to produce the output predictions for each position in the input sequences. The **number of units in this layer corresponds to the number of unique labels** in the dataset. The activation function used in the output layer is a `softmax function`, which yields a **probability distribution among the target labels**, enabling the classification of each word in the input sequence.
+
+
 The source code used for this part of the project can be found [here](./src/NERC_DL)
 
 #### DDI with Deep Learning
