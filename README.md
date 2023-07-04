@@ -198,7 +198,32 @@ Finally, a `time-distributed dense layer` is applied to produce the output predi
 The source code used for this part of the project can be found [here](./src/NERC_DL)
 
 #### DDI with Deep Learning
+In this part of the project the following solution was developed for the DDI task.
 
+##### CNN and BiLSTM
+`Convolutional layers` are powerful for learning local patterns in data, while `Bidirectional LSTMs` are effective at capturing long-term dependencies in sequential data, and in both directions. Because of that, there are many ways of attempting to combine them to obtain enhanced results. We acknowledged the three alternatives:
+
+* CNN’s output as the input to the BiLSTM. It may allow the BiLSTM to learn features from the input data that have been learned by the CNN
+* LSTM’s output as the input to the CNN . It may allow the BiLSTM to learn features from the input data that have been learned by the CNN.
+* The CNN and BiLSTM operate on the input data independently, and their outputs are concatenated and passed to maybe a fully connected layer.
+
+##### Early stopping
+It was realized that the model did overfit way before arriving at the default number of `10` epochs in some tests. That is, the validation loss and validation accuracy started to get worse than expected. The solution introduced for that was to `stop training always a fixed 10 epochs` and instead implement an early stopping mechanism with the patience of 5 epochs over the validation loss reduction.
+
+##### Input and Embedding Layers
+By following the results of the previous parts of the project, it was decided to add:
+* `PoS`, `lemma`, and `lowercase` spaces of the sentence words
+The immediate impact of their addition was low, but we believe that in effect it led to future improvements since most of the time we added further complexity, the results improved steadily. Every `embedding trainable instance` has a size of `100`.
+
+##### Transformer and BERT
+`Transformers` can be suitable for drug-drug interaction classification in sentences because they **effectively capture contextual information and long-range dependencies** within the text. Also, as **opposed to RNN-based approaches**, parallelization of processes is not an issue and can lead to the creation of more complex models. Putting apart temporarily the CNN and LSTM model, it was decided to **check the behavior of a model with** only the `word embeddings and a default transformer design, with multi-attention heads of size 2, embedding size 100, and the use of positional encoding integrated`.
+
+From this model, it was decided to add trainable parameters complexity and other embeddings to see how the results evolved. Tries with embedding size of `100`, `200`, and `512` and for different head and dense layers dimensionality values took place. Results for different transformers' complexity were quite similar, with F1 scores far from the best ones throughout the project. It is believed that the main reason for this result is due to the lack of a bigger dataset or the ability to properly parallelize the pipeline, which with the limited resources it was impossible to take advantage of, compared to CNN + LSTM approaches.
+
+Another test implememented was to add `pre-trained word embeddings` to the model. `BERT (Bidirectional Encoder Representations from Transformers)` is a powerful **pre-trained contextual representation system built on bi-directionality**. The `BERT` system was used to obtain the embeddings, but even with deactivated training for the BERT parameters, it was too much for the Collab environment to handle. The alternative was to use the applicable GloVe embeddings that we had applied in the NERC task here as well and see the impact.
+
+##### Dense layers
+Finally, different model designs were tested by adding or removing dense layers. Also the `ReLu` activation function for all the hidden layers was tested as well, except the last layer which is implementing the `softmax` activation. Including `max-pooling` or `global average pooling transformations` between was not thoroughly tested and can be something interesting for further iterations.
 The source code used for this part of the project can be found [here](./src/DDI_DL)
 
 [^1]: [https://go.drugbank.com/](https://go.drugbank.com/)
