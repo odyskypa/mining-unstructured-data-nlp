@@ -143,7 +143,6 @@ The source code used for this part of the project can be found [here](./src/NERC
 
 The source code used for this part of the project can be found [here](./src/DDI_DL)
 
-***
 [^1]: [https://go.drugbank.com/](https://go.drugbank.com/)
 [^2]: [https://www.nlm.nih.gov/medline/medline_overview.html](https://www.nlm.nih.gov/medline/medline_overview.html)
 [^3]: [https://stanfordnlp.github.io/CoreNLP/](https://stanfordnlp.github.io/CoreNLP/)
