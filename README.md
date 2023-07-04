@@ -143,13 +143,13 @@ Compared to the traditional ML approach followed before, this approach focuses o
 
 To begin with, the following techniques will be tested to further enhance the performance of the network: 
 * Adding custom input embedding layers with: 
-   * lowercase words, 
-   * their POS tags, 
-   * their lemmas, 
-   * suffixes and prefixes of length 3 to 6
-   * words that contain one capital letter, multiple capital letters, digits, and punctuation respectively
+   * `lowercase` words, 
+   * their `POS tags`, 
+   * their `lemmas`, 
+   * `suffixes` and `prefixes` of length 3 to 6
+   * `words` that `contain one capital letter`, `multiple capital letters`, `digits`, and `punctuation` respectively
 * Moreover, four additional input layers have been tested, which contain:
-   * words that are included in the external sources provided (DrugBank.txt, HSDB.txt), as well as
+   * `words` that are `included in the external sources` provided (DrugBank.txt, HSDB.txt), as well as
    * a `frozen layer` containing `pre-trained embeddings from Stanford (GloVe)`.
 
 ##### Input Layers
