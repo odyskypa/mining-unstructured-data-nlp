@@ -133,11 +133,17 @@ The source code used for this part of the project can be found [here](./src/DDI_
 
 ***
 ### NERC and DDI with Deep Learning
+In this part of the project, the problems of NERC and DDI which needed to be addressed are exactly the same as in the previous section. The main difference of the solution, is the introduction of `Deep Learning` techniques. Special attention has been paid to the implementation of `Word2Vec`, `GloVe` and `BiLSTM` for the NERC task, while `CNN`, `BiLSTM`, `Tranformer` and `BERT` architectures implemented for the DDI task.
 
 #### NERC with Deep Learning
 
+The source code used for this part of the project can be found [here](./src/NERC_DL)
+
 #### DDI with Deep Learning
 
+The source code used for this part of the project can be found [here](./src/DDI_DL)
+
+***
 [^1]: [https://go.drugbank.com/](https://go.drugbank.com/)
 [^2]: [https://www.nlm.nih.gov/medline/medline_overview.html](https://www.nlm.nih.gov/medline/medline_overview.html)
 [^3]: [https://stanfordnlp.github.io/CoreNLP/](https://stanfordnlp.github.io/CoreNLP/)
