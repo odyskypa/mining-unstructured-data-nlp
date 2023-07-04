@@ -224,6 +224,7 @@ Another test implememented was to add `pre-trained word embeddings` to the model
 
 ##### Dense layers
 Finally, different model designs were tested by adding or removing dense layers. Also the `ReLu` activation function for all the hidden layers was tested as well, except the last layer which is implementing the `softmax` activation. Including `max-pooling` or `global average pooling transformations` between was not thoroughly tested and can be something interesting for further iterations.
+
 The source code used for this part of the project can be found [here](./src/DDI_DL)
 
 [^1]: [https://go.drugbank.com/](https://go.drugbank.com/)
